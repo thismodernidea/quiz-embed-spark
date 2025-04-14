@@ -18,17 +18,17 @@ type QuestionGroupProps = {
 };
 
 const RATING_OPTIONS = [
-  { value: 1, label: 'Very slightly or not at all' },
-  { value: 2, label: 'A little' },
-  { value: 3, label: 'Moderately' },
-  { value: 4, label: 'Quite a bit' },
-  { value: 5, label: 'Extremely' },
+  { value: 1, label: 'Very slightly or not at all like me' },
+  { value: 2, label: 'A little like me' },
+  { value: 3, label: 'Moderately like me' },
+  { value: 4, label: 'Quite a bit like me' },
+  { value: 5, label: 'Extremely like me' },
 ];
 
 const QuestionGroup = ({ group, answers, onAnswer }: QuestionGroupProps) => {
   return (
-    <div className="space-y-8">
-      <h2 className="text-2xl font-semibold text-gray-900">{group.dimension}</h2>
+    <div className="space-y-8 p-6">
+      <h2 className="text-2xl font-arvo text-gray-900">{group.dimension}</h2>
       
       <div className="space-y-6">
         {group.questions.map((question) => {
@@ -36,7 +36,7 @@ const QuestionGroup = ({ group, answers, onAnswer }: QuestionGroupProps) => {
           
           return (
             <div key={question.id} className="space-y-4">
-              <p className="text-gray-700">{question.text}</p>
+              <p className="font-roboto text-gray-700">{question.text}</p>
               
               <RadioGroup
                 value={answer?.value?.toString()}
@@ -51,9 +51,9 @@ const QuestionGroup = ({ group, answers, onAnswer }: QuestionGroupProps) => {
                     />
                     <Label 
                       htmlFor={`q${question.id}-${option.value}`}
-                      className="text-sm text-gray-600"
+                      className="text-sm font-roboto text-gray-600"
                     >
-                      {option.value}
+                      {option.label}
                     </Label>
                   </div>
                 ))}
